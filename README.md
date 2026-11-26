@@ -4,6 +4,20 @@
 
 An interactive AI, Machine Learning, Transformer, RAG, and Agentic AI Engineering University built around live simulations, first-principles mathematical engines, from-scratch Python implementations, failure-mode analysis, and hands-on engineering challenges.
 
+## Platform Preview
+
+### Interactive Learning Studio — Gradient Descent Landscapes
+![AGENTVERSE Gradient Descent Simulation Studio](./docs/dashboard-gradient-descent.png)
+
+### Autonomous Agent Execution Loop (ReAct, Guardrails & Memory)
+![AGENTVERSE Autonomous Agent Execution Loop](./docs/dashboard-agent-loop.png)
+
+### University Home & Live Agent Preview
+![AGENTVERSE Home Overview](./docs/dashboard-home.png)
+
+### Warm Paper Light Mode — Transformer Self-Attention & Sampling
+![AGENTVERSE Transformer Self-Attention Light Mode](./docs/dashboard-light-theme.png)
+
 ## Interactive Simulation Engines
 1. **Gradient Descent Landscapes (`src/engines/gradientDescent.ts`)** — Convex, Non-Convex Multi-Minima, 2D Ill-Conditioned Ravine contours, and Steep Cliff landscapes comparing Vanilla GD, Momentum, and Adam with stability/divergence detection.
 2. **Neural Network Forward & Backward Propagation (`src/engines/neuralNet.ts`)** — Interactive `2 → 3 → 1` MLP with exact forward pass, chain-rule backprop gradients, live `12×12` decision boundaries on XOR/Linear/Circle datasets, and vanishing/exploding gradient diagnostics.
