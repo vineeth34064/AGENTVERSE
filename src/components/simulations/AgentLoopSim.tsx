@@ -229,22 +229,22 @@ export function AgentLoopSim({
 
             {/* Links between isometric blocks */}
             <path
-              d="M114,72 L202,72"
+              d="M118,64 L196,60"
               className={`link ${state.activeLink === 'goal->reasoner' ? 'link--beat' : ''}`}
               markerEnd="url(#ag-arrow)"
             />
             <path
-              d="M254,108 L254,136"
+              d="M254,104 L254,124"
               className={`link ${state.activeLink === 'memory->reasoner' ? 'link--beat' : ''}`}
               markerEnd="url(#ag-arrow)"
             />
             <path
-              d="M310,68 L382,68"
+              d="M312,60 L378,62"
               className={`link ${state.activeLink === 'reasoner->guardrail' ? 'link--beat' : ''}`}
               markerEnd="url(#ag-arrow)"
             />
             <path
-              d="M474,64 L544,60"
+              d="M478,60 L540,58"
               className={`link ${
                 state.guardrailStatus === 'injection-blocked'
                   ? 'link--cut'
@@ -255,12 +255,12 @@ export function AgentLoopSim({
               markerEnd="url(#ag-arrow)"
             />
             <path
-              d="M578,98 L292,154"
+              d="M546,84 Q425,148 296,154"
               className={`link link--dashed ${state.activeLink === 'tools->memory' ? 'link--beat' : ''}`}
               markerEnd="url(#ag-arrow)"
             />
             <path
-              d="M302,94 L542,144"
+              d="M306,82 Q445,106 544,142"
               className={`link link--dashed ${state.activeLink === 'reasoner->evaluator' ? 'link--beat' : ''}`}
               markerEnd="url(#ag-arrow)"
             />
@@ -283,7 +283,7 @@ export function AgentLoopSim({
               cy={60}
               w={58}
               h={24}
-              depth={22}
+              depth={20}
               tone="blue"
               label={config.architecture === 'react' ? 'ReAct LLM' : config.architecture === 'plan-execute' ? 'Planner DAG' : 'Supervisor'}
               active={state.activeNode === 'reasoner'}
@@ -305,12 +305,18 @@ export function AgentLoopSim({
               cy={62}
               w={50}
               h={22}
-              depth={22}
+              depth={20}
               tone={state.guardrailStatus === 'breached' ? 'orange' : 'green'}
               label="Guardrail"
-              sublabel={config.strictSandbox ? 'Strict Allowlist' : 'Unrestricted!'}
               active={state.activeNode === 'guardrail'}
               alert={state.guardrailStatus === 'breached' || state.phase === 'await-approval'}
+            />
+            <IsoPill
+              x={428}
+              y={22}
+              width={118}
+              text={config.strictSandbox ? 'Strict Allowlist' : 'Unrestricted!'}
+              tone={config.strictSandbox ? 'good' : 'bad'}
             />
             <IsoBlock
               prefix="ag"
@@ -339,13 +345,13 @@ export function AgentLoopSim({
             />
 
             {state.phase === 'await-approval' && (
-              <IsoPill x={428} y={24} width={145} text="Human Approval Needed!" tone="warn" />
+              <IsoPill x={428} y={108} width={145} text="Human Approval Needed!" tone="warn" />
             )}
             {state.guardrailStatus === 'injection-blocked' && (
-              <IsoPill x={490} y={24} width={155} text="Injection Blocked ✓" tone="good" />
+              <IsoPill x={508} y={22} width={155} text="Injection Blocked ✓" tone="good" />
             )}
             {state.guardrailStatus === 'breached' && (
-              <IsoPill x={596} y={24} width={160} text="Exfiltration Breach!" tone="bad" />
+              <IsoPill x={596} y={22} width={160} text="Exfiltration Breach!" tone="bad" />
             )}
 
             {/* Live Trajectory Inspector Strip */}

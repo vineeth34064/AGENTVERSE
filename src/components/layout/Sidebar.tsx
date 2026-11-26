@@ -83,7 +83,7 @@ export function Sidebar({
             <path d="M1 3a2 2 0 0 1 2-2h4.3l2 2.2H17a2 2 0 0 1 2 2V13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2Z" fill="currentColor" />
           </svg>
           <span>University</span>
-          <span className="tree-root__meta">14 stages · {totalLessons} modules</span>
+          <span className="tree-root__meta">14 stages · {totalLessons}</span>
           <button
             className="drawer-close"
             type="button"

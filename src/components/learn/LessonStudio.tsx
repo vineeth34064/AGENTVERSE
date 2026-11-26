@@ -90,43 +90,44 @@ export function LessonStudio({
     <>
       <main className="sheet">
         <div className="lesson-head">
-          <div className="crumb">
-            {lesson.stageNumber}. {lesson.stageTitle} <span>/</span> Lesson {lessonNum} of{' '}
-            {stage?.lessons.length ?? 1}
+          <div className="crumb" style={{ justifyContent: 'space-between' }}>
+            <span>
+              {lesson.stageNumber}. {lesson.stageTitle} <span>/</span> Lesson {lessonNum} of{' '}
+              {stage?.lessons.length ?? 1}
+            </span>
+            <div className="mode-tabs" role="tablist" aria-label="Lesson View Mode">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={stageTab === 'simulation'}
+                className={`mode-tab ${stageTab === 'simulation' ? 'is-active' : ''}`}
+                onClick={() => setStageTab('simulation')}
+              >
+                <FlaskConical size={12} /> Sim
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={stageTab === 'math-code'}
+                className={`mode-tab ${stageTab === 'math-code' ? 'is-active' : ''}`}
+                onClick={() => setStageTab('math-code')}
+              >
+                <Code2 size={12} /> Math &amp; Code
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={stageTab === 'challenge'}
+                className={`mode-tab ${stageTab === 'challenge' ? 'is-active' : ''}`}
+                onClick={() => setStageTab('challenge')}
+              >
+                <Award size={12} /> Check
+              </button>
+            </div>
           </div>
           <div className="lesson-head__row">
             <h1 className="title">{lesson.title}</h1>
             <div className="tags">
-              <div className="mode-tabs" role="tablist" aria-label="Lesson View Mode">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={stageTab === 'simulation'}
-                  className={`mode-tab ${stageTab === 'simulation' ? 'is-active' : ''}`}
-                  onClick={() => setStageTab('simulation')}
-                >
-                  <FlaskConical size={12} /> Sim
-                </button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={stageTab === 'math-code'}
-                  className={`mode-tab ${stageTab === 'math-code' ? 'is-active' : ''}`}
-                  onClick={() => setStageTab('math-code')}
-                >
-                  <Code2 size={12} /> Math &amp; Code
-                </button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={stageTab === 'challenge'}
-                  className={`mode-tab ${stageTab === 'challenge' ? 'is-active' : ''}`}
-                  onClick={() => setStageTab('challenge')}
-                >
-                  <Award size={12} /> Check
-                </button>
-              </div>
-
               <span className="tag tag--sand">
                 <Clock size={12} /> {lesson.duration}
               </span>

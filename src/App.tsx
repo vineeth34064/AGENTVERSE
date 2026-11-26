@@ -13,6 +13,8 @@ import { RoadmapView } from './components/views/RoadmapView';
 
 function AgentverseApp() {
   const [theme, setTheme] = useState<ThemeMode>(() => {
+    const paramTheme = new URLSearchParams(window.location.search).get('theme');
+    if (paramTheme === 'light' || paramTheme === 'dark') return paramTheme;
     try {
       const saved = JSON.parse(localStorage.getItem('agentverse:theme') ?? '"dark"');
       return saved === 'light' ? 'light' : 'dark';
@@ -21,8 +23,16 @@ function AgentverseApp() {
     }
   });
 
-  const [activeNav, setActiveNav] = useState<NavSection>('learn');
-  const [activeLessonId, setActiveLessonId] = useState<string>('gradient-descent');
+  const [activeNav, setActiveNav] = useState<NavSection>(() => {
+    const view = new URLSearchParams(window.location.search).get('view');
+    if (view === 'home' || view === 'learn' || view === 'labs' || view === 'projects' || view === 'roadmap') {
+      return view;
+    }
+    return 'learn';
+  });
+  const [activeLessonId, setActiveLessonId] = useState<string>(() => {
+    return new URLSearchParams(window.location.search).get('lesson') || 'gradient-descent';
+  });
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
