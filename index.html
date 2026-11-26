@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-layout="desktop">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AGENTVERSE · Interactive AI &amp; Agentic Engineering University</title>
+    <meta
+      name="description"
+      content="Understand Intelligence. Engineer Autonomy. An interactive AI, Machine Learning, Transformer, RAG, and Agentic AI Engineering University powered by live simulations."
+    />
+    <meta name="theme-color" content="#211e1a" />
+    <script>
+      try {
+        var savedTheme = JSON.parse(localStorage.getItem('agentverse:theme'));
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          document.documentElement.dataset.theme = savedTheme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', savedTheme === 'dark' ? '#211e1a' : '#f4ebe0');
+        }
+      } catch (e) {}
+      var w = window.innerWidth, h = window.innerHeight;
+      document.documentElement.dataset.layout =
+        w >= 1200 && h >= 560 ? 'desktop' : w >= 960 && h >= 600 ? 'tablet' : 'stack';
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+# Dependencies & build output
+node_modules/
+dist/
+.vite/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Logs & OS artifacts
+*.log
+npm-debug.log*
+tsconfig.tsbuildinfo
+.DS_Store
+Thumbs.db
